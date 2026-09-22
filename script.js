@@ -1,122 +1,70 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+const hearts = document.getElementById("hearts");
+
+function createHeart() {
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 5 + 5) + "s";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+    hearts.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 10000);
 }
 
-body{
-    font-family:Arial, sans-serif;
-    background:url("background.jpg") center center/cover no-repeat fixed;
-    color:white;
-    height:100vh;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    position:relative;
-}
+setInterval(createHeart, 300);
 
-body::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:rgba(0,0,0,.45);
-    backdrop-filter:blur(8px);
-    z-index:0;
-}
+const letter = `
 
-.overlay{
-    background:rgba(0,0,0,0.6);
-    padding:50px;
-    border-radius:20px;
-    backdrop-filter:blur(8px);
-    z-index:2;
-    position:relative;
-z-index:2;
-box-shadow:0 0 50px rgba(255,0,100,.3);
-}
+Sawubona Mbalii 🧟‍♀️,
 
-h1{
-    font-size:50px;
-    margin-bottom:20px;
-}
+Sawubonaa we ntombentle, ngiyathemba uyaphila, Umuhle weNtombazane,
+But fix your attitude fn😒
+Other than that i really enjoyed our time together, youre so unique and different
+Obviously youre not the funniest 💁🏽 but uyazama
+I hope we can spend more time together youre cool and i'm so sorry about your eye
+I wanted to get you something but ayy wena youd probably dismiss the
+But im looking forward and stop being performative 🤣
+I like you.
 
-.intro{
-    font-size:20px;
-    margin-bottom:30px;
-}
+Lilitha 🦅
+`;
 
-button{
-    background:#ff4d6d;
-    color:white;
-    border:none;
-    padding:15px 35px;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:18px;
-    transition:.3s;
-}
+const button = document.getElementById("openBtn");
+const overlay = document.querySelector(".overlay");
 
-button:hover{
-    transform:scale(1.05);
-}
+button.addEventListener("click", () => {
 
-#hearts{
-    position:fixed;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    pointer-events:none;
-}
+    overlay.style.opacity = "0";
 
-.heart{
-    position:absolute;
-    bottom:-50px;
-    animation:float linear forwards;
-}
+    setTimeout(() => {
 
-@keyframes float{
-    from{
-        transform:translateY(0);
-        opacity:1;
-    }
+        overlay.innerHTML = `
+            <div id="letter">
+                <h2>Lilitha🦅</h2>
+                <p id="typewriter"></p>
+            </div>
+        `;
 
-    to{
-        transform:translateY(-120vh);
-        opacity:0;
-    }
-}
+        overlay.style.opacity = "1";
 
-.hidden{
-    display:none;
-}
+        let i = 0;
 
-#letter{
-    margin-top:40px;
-    max-width:700px;
-    line-height:1.8;
-}
+        function type() {
+            if (i < letter.length) {
+                document.getElementById("typewriter").innerHTML += letter.charAt(i);
+                i++;
+                setTimeout(type, 35);
+            }
+        }
 
-#typewriter{
-    white-space:pre-wrap;
-    font-size:20px;
-}
-.overlay{
-    transition:opacity .7s ease;
-}
+        type();
 
-#letter{
-    max-width:700px;
-}
+    }, 700);
 
-#letter h2{
-    margin-bottom:20px;
-    font-size:38px;
-}
-
-#typewriter{
-    white-space:pre-wrap;
-    line-height:1.8;
-    font-size:22px;
-}
+});
