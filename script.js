@@ -21,18 +21,17 @@ setInterval(createHeart, 300);
 
 const letter = `
 
-Sawubona Mbalii 🧟‍♀️,
+Sawubona Mbalii 🌸,
 
-Sawubonaa we ntombentle, ngiyathemba uyaphila, Umuhle weNtombazane,
-But fix your attitude fn😒
-Other than that i really enjoyed our time together, youre so unique and different
-Obviously youre not the funniest 💁🏽 but uyazama
-I hope we can spend more time together youre cool and i'm so sorry about your eye
-I wanted to get you something but ayy wena youd probably dismiss the
-But im looking forward and stop being performative 🤣
-I like you.
+I don't usually write things like this, but sengwe ka wena just feels different.
+By the way, how were your holidays? Ke tshepa gore o ne wa di enjoya.
+my results werent too bad icl, i missed a distiction by a percent 😭😂,
+so, wena how did you do?
+Ke rata vibe ya gago, Ga ke itse gore this will go kae,🤍
+i really like you, but ik u said youre not looking for anything at all
+but im sure we could figure something outtt atleast, how about a date?
 
-Lilitha 🦅
+Lilitha 
 `;
 
 const button = document.getElementById("openBtn");
